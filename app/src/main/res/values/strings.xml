@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Movie Catalogue</string>
+    <string name="movie_n_catalogue">Movie\n Catalogue</string>
+    <string name="movies">Movies</string>
+    <string name="tv_shows">TV Shows</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie_name">Movie Name</string>
+    <string name="movie_detail">Movie Detail</string>
+    <string name="tv_shows_name">Tv Shows Name</string>
+    <string name="tv_shows_detail">Tv Shows Detail</string>
+    <string name="detail_movie">Detail Movie</string>
+    <string name="genre">genre</string>
+    <string name="_gap">.</string>
+    <string name="length">Length</string>
+    <string name="_2h_16_m">2h 16 m</string>
+    <string name="initial_release">Release</string>
+    <string name="_2018">2018</string>
+    <string name="overview">Overview</string>
+    <string name="detail_content">Detail Content</string>
+</resources>

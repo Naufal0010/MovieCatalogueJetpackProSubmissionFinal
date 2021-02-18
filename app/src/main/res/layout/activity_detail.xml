@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_grey"
+    android:padding="16dp"
+    tools:context=".ui.DetailActivity">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/image_view_detail"
+        android:layout_width="130dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="10dp" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:maxLines="2"
+        android:text="@string/detail_movie"
+        android:textColor="@color/grey_text"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/image_view_detail"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:maxLines="2"
+        android:text="@string/genre"
+        android:textColor="@color/dark_grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/image_view_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_length_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/length"
+        android:textColor="@color/dark_grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/image_view_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genre" />
+
+    <TextView
+        android:id="@+id/tv_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/_2h_16_m"
+        android:textColor="@color/dark_grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/image_view_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_length_text" />
+
+    <TextView
+        android:id="@+id/tv_initial_release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/initial_release"
+        android:textColor="@color/dark_grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/image_view_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_length" />
+
+    <TextView
+        android:id="@+id/tv_release"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/_2018"
+        android:textColor="@color/dark_grey_text"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/image_view_detail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_initial_release" />
+
+    <TextView
+        android:id="@+id/tv_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/overview"
+        android:textColor="@color/grey_text"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_detail" />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/detail_content"
+        android:textColor="@color/dark_grey_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overview" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
