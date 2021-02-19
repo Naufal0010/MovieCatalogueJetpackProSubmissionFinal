@@ -7,5 +7,5 @@ data class MoviesModel(
     var poster: String,
     var genre: String,
     var length: String,
-    var release: Int
+    var release: String
 )

@@ -38,8 +38,11 @@ class MainActivityTest {
         onView(withId(R.id.tv_detail)).check(matches(withText(dummyMovie[0].description)))
         onView(withId(R.id.image_view_detail)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_genre)).check(matches(withText(dummyMovie[0].genre)))
         onView(withId(R.id.tv_length)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_length)).check(matches(withText(dummyMovie[0].length)))
         onView(withId(R.id.tv_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_release)).check(matches(withText(dummyMovie[0].release)))
     }
 
     @Test
@@ -59,7 +62,10 @@ class MainActivityTest {
         onView(withId(R.id.tv_detail)).check(matches(withText(dummyTvShow[0].description)))
         onView(withId(R.id.image_view_detail)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_genre)).check(matches(withText(dummyTvShow[0].genre)))
         onView(withId(R.id.tv_length)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_length)).check(matches(withText(dummyTvShow[0].length)))
         onView(withId(R.id.tv_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_release)).check(matches(withText(dummyTvShow[0].release)))
     }
 }

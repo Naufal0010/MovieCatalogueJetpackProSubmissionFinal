@@ -46,7 +46,7 @@ class DetailActivity : AppCompatActivity() {
             tvTitle.text = movies.title
             tvGenre.text = movies.genre
             tvLength.text = movies.length
-            tvRelease.text = movies.release.toString()
+            tvRelease.text = movies.release
             tvDetail.text = movies.description
             Glide.with(binding.root)
                     .load(movies.poster)
@@ -61,7 +61,7 @@ class DetailActivity : AppCompatActivity() {
             tvTitle.text = tvShows.title
             tvGenre.text = tvShows.genre
             tvLength.text = tvShows.length
-            tvRelease.text = tvShows.release.toString()
+            tvRelease.text = tvShows.release
             tvDetail.text = tvShows.description
             Glide.with(binding.root)
                     .load(tvShows.poster)
