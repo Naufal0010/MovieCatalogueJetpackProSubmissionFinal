@@ -1,15 +1,17 @@
 package com.exercise.moviecatalogue.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.exercise.moviecatalogue.R
+import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
+import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.databinding.ActivityDetailBinding
-import com.exercise.moviecatalogue.model.MoviesModel
-import com.exercise.moviecatalogue.model.TvShowsModel
 import com.exercise.moviecatalogue.viewmodel.DetailViewModel
+import com.exercise.moviecatalogue.viewmodel.ViewModelFactory
 
 class DetailActivity : AppCompatActivity() {
 
@@ -22,7 +24,8 @@ class DetailActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
@@ -30,13 +33,23 @@ class DetailActivity : AppCompatActivity() {
             val idTvShow = extras.getString(EXTRA_TV)
 
             if (idMovie != null) {
+                setProgressBar(true)
+
                 viewModel.setSelectedMovie(idMovie)
-                populateMovie(viewModel.getMovie())
+                viewModel.getMovie().observe(this, { movies ->
+                    setProgressBar(false)
+                    populateMovie(movies)
+                })
             }
 
             if (idTvShow != null) {
+                setProgressBar(true)
+
                 viewModel.setSelectedTvShow(idTvShow)
-                populateTvShow(viewModel.getTvShows())
+                viewModel.getTvShows().observe(this, { tvShows ->
+                    setProgressBar(false)
+                    populateTvShow(tvShows)
+                })
             }
         }
     }
@@ -68,6 +81,15 @@ class DetailActivity : AppCompatActivity() {
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
                     .error(R.drawable.ic_broken_image)
                     .into(imageViewDetail)
+        }
+    }
+
+    private fun setProgressBar(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        }
+        else {
+            binding.progressBar.visibility = View.INVISIBLE
         }
     }
 

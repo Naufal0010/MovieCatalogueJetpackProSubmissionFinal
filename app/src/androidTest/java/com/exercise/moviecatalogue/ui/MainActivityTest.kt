@@ -3,14 +3,17 @@ package com.exercise.moviecatalogue.ui
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.exercise.moviecatalogue.R
 import com.exercise.moviecatalogue.utils.DataDummy
-import org.junit.Test
+import com.exercise.moviecatalogue.utils.EspressoIdlingResources
+import org.junit.After
 import org.junit.Before
+import org.junit.Test
 
 
 class MainActivityTest {
@@ -21,6 +24,12 @@ class MainActivityTest {
     @Before
     fun setUp() {
         ActivityScenario.launch(MainActivity::class.java)
+        IdlingRegistry.getInstance().register(EspressoIdlingResources.idlingResource)
+    }
+
+    @After
+    fun tearDown() {
+        IdlingRegistry.getInstance().unregister(EspressoIdlingResources.idlingResource)
     }
 
     @Test

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.exercise.moviecatalogue.adapter.MovieAdapter
 import com.exercise.moviecatalogue.databinding.FragmentMoviesBinding
 import com.exercise.moviecatalogue.viewmodel.MovieViewModel
+import com.exercise.moviecatalogue.viewmodel.ViewModelFactory
 
 class MoviesFragment : Fragment() {
 
@@ -24,17 +25,31 @@ class MoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-            val movies = viewModel.getMovies()
+            val factory = ViewModelFactory.getInstance(requireContext())
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
             val movieAdapter = MovieAdapter()
-            movieAdapter.setMovies(movies)
+            setProgressBar(true)
+            viewModel.getMovies().observe(this, { movies ->
+                setProgressBar(false)
+                movieAdapter.setMovies(movies)
+                movieAdapter.notifyDataSetChanged()
+            })
 
             with(binding.rvMovies) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = movieAdapter
             }
+        }
+    }
+
+    private fun setProgressBar(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        }
+        else {
+            binding.progressBar.visibility = View.INVISIBLE
         }
     }
 }

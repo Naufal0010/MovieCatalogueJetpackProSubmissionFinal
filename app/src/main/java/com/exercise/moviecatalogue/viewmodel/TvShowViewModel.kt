@@ -1,10 +1,11 @@
 package com.exercise.moviecatalogue.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.exercise.moviecatalogue.model.TvShowsModel
-import com.exercise.moviecatalogue.utils.DataDummy
+import com.exercise.moviecatalogue.data.MovieCatalogueRepository
+import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 
-class TvShowViewModel : ViewModel() {
+class TvShowViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
 
-    fun getTvShows() : List<TvShowsModel> = DataDummy.generateTvShows()
+    fun getTvShows() : LiveData<List<TvShowsModel>> = movieCatalogueRepository.getAllTvShows()
 }

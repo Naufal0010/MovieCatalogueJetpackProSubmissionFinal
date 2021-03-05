@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.exercise.moviecatalogue.R
+import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
 import com.exercise.moviecatalogue.databinding.ItemsCardviewMoviesBinding
-import com.exercise.moviecatalogue.model.MoviesModel
 import com.exercise.moviecatalogue.ui.DetailActivity
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {

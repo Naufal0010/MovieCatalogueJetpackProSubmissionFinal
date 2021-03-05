@@ -1,10 +1,9 @@
 package com.exercise.moviecatalogue.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.exercise.moviecatalogue.databinding.ActivitySplashScreenBinding
-import java.lang.Exception
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -20,7 +19,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 super.run()
 
                 try {
-                    sleep(3000)
+                    sleep(TIME_SLEEP)
                     val intent = Intent(baseContext, MainActivity::class.java)
                     startActivity(intent)
                 }
@@ -31,5 +30,9 @@ class SplashScreenActivity : AppCompatActivity() {
         }
 
         background.start()
+    }
+
+    companion object {
+        private const val TIME_SLEEP = 3000L
     }
 }

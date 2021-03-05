@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.exercise.moviecatalogue.adapter.TvShowsAdapter
 import com.exercise.moviecatalogue.databinding.FragmentTvShowsBinding
 import com.exercise.moviecatalogue.viewmodel.TvShowViewModel
+import com.exercise.moviecatalogue.viewmodel.ViewModelFactory
 
 class TvShowsFragment : Fragment() {
 
@@ -24,17 +25,31 @@ class TvShowsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
-            val tvShow = viewModel.getTvShows()
+            val factory = ViewModelFactory.getInstance(requireContext())
+            val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
 
-            val adapterTvShows = TvShowsAdapter()
-            adapterTvShows.setTvShows(tvShow)
+            val tvShowsAdapter = TvShowsAdapter()
+            setProgressBar(true)
+            viewModel.getTvShows().observe(this, { tvShows ->
+                setProgressBar(false)
+                tvShowsAdapter.setTvShows(tvShows)
+                tvShowsAdapter.notifyDataSetChanged()
+            })
 
             with(binding.rvTvShows) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
-                adapter = adapterTvShows
+                adapter = tvShowsAdapter
             }
+        }
+    }
+
+    private fun setProgressBar(state: Boolean) {
+        if (state) {
+            binding.progressBar.visibility = View.VISIBLE
+        }
+        else {
+            binding.progressBar.visibility = View.INVISIBLE
         }
     }
 }
