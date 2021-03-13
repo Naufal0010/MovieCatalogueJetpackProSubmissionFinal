@@ -1,7 +1,6 @@
 package com.exercise.moviecatalogue.di
 
 import android.content.Context
-import com.exercise.moviecatalogue.data.MovieCatalogueDataSource
 import com.exercise.moviecatalogue.data.MovieCatalogueRepository
 import com.exercise.moviecatalogue.data.source.local.LocalDataSource
 import com.exercise.moviecatalogue.data.source.local.room.MovieCatalogueDatabase

@@ -13,21 +13,23 @@ import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.databinding.ItemsCardviewTvshowsBinding
 import com.exercise.moviecatalogue.ui.DetailActivity
 
-class TvShowsAdapter : PagedListAdapter<TvShowsModel, TvShowsAdapter.TvShowsViewHolder>(DIFF_CALLBACK) {
+class FavoriteTvShowAdapter : PagedListAdapter<TvShowsModel, FavoriteTvShowAdapter.FavoriteTvShowViewHolder>(DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteTvShowAdapter.FavoriteTvShowViewHolder {
         val binding = ItemsCardviewTvshowsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return TvShowsViewHolder(binding)
+        return FavoriteTvShowViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: TvShowsViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoriteTvShowAdapter.FavoriteTvShowViewHolder, position: Int) {
         val tvShow = getItem(position)
         if (tvShow != null) {
             holder.bind(tvShow)
         }
     }
 
-    inner class TvShowsViewHolder(private val binding: ItemsCardviewTvshowsBinding) : RecyclerView.ViewHolder(binding.root) {
+    fun getSwipedData(swipedPosition: Int): TvShowsModel? = getItem(swipedPosition)
+
+    inner class FavoriteTvShowViewHolder(private val binding: ItemsCardviewTvshowsBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(tvShow : TvShowsModel) {
             with(binding) {

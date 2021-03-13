@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -18,6 +19,7 @@ import com.exercise.moviecatalogue.vo.Status
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var viewModel: DetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
+        viewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
@@ -71,6 +73,9 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun populateMovie(movies: MoviesModel) {
+        var status = movies.favorited
+        setFavorite(status)
+
         with(binding) {
             tvTitle.text = movies.title
             tvGenre.text = movies.genre
@@ -82,10 +87,19 @@ class DetailActivity : AppCompatActivity() {
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
                     .error(R.drawable.ic_broken_image)
                     .into(imageViewDetail)
+
+            fabFavorite.setOnClickListener {
+                status = !status
+                setFavorite(status)
+                viewModel.setFavorite()
+            }
         }
     }
 
     private fun populateTvShow(tvShows: TvShowsModel) {
+        var status = tvShows.favorited
+        setFavorite(status)
+
         with(binding) {
             tvTitle.text = tvShows.title
             tvGenre.text = tvShows.genre
@@ -97,6 +111,12 @@ class DetailActivity : AppCompatActivity() {
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
                     .error(R.drawable.ic_broken_image)
                     .into(imageViewDetail)
+
+            fabFavorite.setOnClickListener {
+                status = !status
+                setFavorite(status)
+                viewModel.setFavorite()
+            }
         }
     }
 
@@ -106,6 +126,15 @@ class DetailActivity : AppCompatActivity() {
         }
         else {
             binding.progressBar.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun setFavorite(state: Boolean) {
+        if (state) {
+            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_white))
+        }
+        else {
+            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_border))
         }
     }
 

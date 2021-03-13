@@ -38,8 +38,7 @@ class MoviesFragment : Fragment() {
                         Status.LOADING -> setProgressBar(true)
                         Status.SUCCESS -> {
                             setProgressBar(false)
-                            movieAdapter.setMovies(movies.data)
-                            movieAdapter.notifyDataSetChanged()
+                            movieAdapter.submitList(movies.data)
                         }
                         Status.ERROR -> {
                             setProgressBar(false)
@@ -51,7 +50,6 @@ class MoviesFragment : Fragment() {
 
             with(binding.rvMovies) {
                 layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
                 adapter = movieAdapter
             }
         }

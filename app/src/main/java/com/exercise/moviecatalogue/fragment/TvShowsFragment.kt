@@ -38,7 +38,7 @@ class TvShowsFragment : Fragment() {
                         Status.LOADING -> setProgressBar(true)
                         Status.SUCCESS -> {
                             setProgressBar(false)
-                            tvShowsAdapter.setTvShows(tvShows.data)
+                            tvShowsAdapter.submitList(tvShows.data)
                             tvShowsAdapter.notifyDataSetChanged()
                         }
                         Status.ERROR -> {
@@ -51,7 +51,6 @@ class TvShowsFragment : Fragment() {
 
             with(binding.rvTvShows) {
                 layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
                 adapter = tvShowsAdapter
             }
         }
