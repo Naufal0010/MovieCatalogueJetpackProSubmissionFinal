@@ -27,7 +27,7 @@ class FavoriteTvShowFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFavoriteTvShowBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -76,7 +76,7 @@ class FavoriteTvShowFragment : Fragment() {
 
                 val snackbar =
                     Snackbar.make(view as View, R.string.message_undo, Snackbar.LENGTH_LONG)
-                snackbar.setAction(R.string.message_ok) { v ->
+                snackbar.setAction(R.string.message_ok) { _ ->
                     tvShowModel?.let { viewModel.setFavoriteTvShow(it) }
                 }
                 snackbar.show()

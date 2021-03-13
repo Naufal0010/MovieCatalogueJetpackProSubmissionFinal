@@ -27,7 +27,7 @@ class FavoriteMovieFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFavoriteMovieBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -77,7 +77,7 @@ class FavoriteMovieFragment : Fragment() {
 
                 val snackbar =
                     Snackbar.make(view as View, R.string.message_undo, Snackbar.LENGTH_LONG)
-                snackbar.setAction(R.string.message_ok) { v ->
+                snackbar.setAction(R.string.message_ok) { _ ->
                     movieModel?.let { viewModel.setFavoriteMovie(it) }
                 }
                 snackbar.show()
