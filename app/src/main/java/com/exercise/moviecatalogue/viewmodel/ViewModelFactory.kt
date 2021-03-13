@@ -9,16 +9,16 @@ import com.exercise.moviecatalogue.di.Injection
 class ViewModelFactory private constructor(private val mMovieCatalogueRepository: MovieCatalogueRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
-        companion object {
+    companion object {
 
-            @Volatile
-            private var instance: ViewModelFactory? = null
+        @Volatile
+        private var instance: ViewModelFactory? = null
 
-            fun getInstance(context: Context): ViewModelFactory =
-                instance ?: synchronized(this) {
-                    instance ?: ViewModelFactory(Injection.provideRepository(context))
-                }
-        }
+        fun getInstance(context: Context): ViewModelFactory =
+            instance ?: synchronized(this) {
+                instance ?: ViewModelFactory(Injection.provideRepository(context))
+            }
+    }
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

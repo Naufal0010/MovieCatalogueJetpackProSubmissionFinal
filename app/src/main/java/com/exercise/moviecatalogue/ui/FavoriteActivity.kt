@@ -15,7 +15,8 @@ class FavoriteActivity : AppCompatActivity() {
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = applicationContext.resources.getString(R.string.favorite_catalogue)
+        supportActionBar?.title =
+            applicationContext.resources.getString(R.string.favorite_catalogue)
         supportActionBar?.elevation = 0f
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

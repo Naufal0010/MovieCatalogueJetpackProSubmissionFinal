@@ -19,7 +19,11 @@ class MoviesFragment : Fragment() {
 
     private lateinit var binding: FragmentMoviesBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentMoviesBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -34,7 +38,7 @@ class MoviesFragment : Fragment() {
             val movieAdapter = MovieAdapter()
             viewModel.getMovies().observe(this, { movies ->
                 if (movies != null) {
-                    when(movies.status) {
+                    when (movies.status) {
                         Status.LOADING -> setProgressBar(true)
                         Status.SUCCESS -> {
                             setProgressBar(false)
@@ -42,7 +46,11 @@ class MoviesFragment : Fragment() {
                         }
                         Status.ERROR -> {
                             setProgressBar(false)
-                            Toast.makeText(context, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                context,
+                                resources.getString(R.string.error),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
@@ -58,8 +66,7 @@ class MoviesFragment : Fragment() {
     private fun setProgressBar(state: Boolean) {
         if (state) {
             binding.progressBar.visibility = View.VISIBLE
-        }
-        else {
+        } else {
             binding.progressBar.visibility = View.INVISIBLE
         }
     }

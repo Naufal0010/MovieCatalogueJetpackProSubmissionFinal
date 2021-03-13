@@ -13,14 +13,22 @@ import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.databinding.ItemsCardviewTvshowsBinding
 import com.exercise.moviecatalogue.ui.DetailActivity
 
-class FavoriteTvShowAdapter : PagedListAdapter<TvShowsModel, FavoriteTvShowAdapter.FavoriteTvShowViewHolder>(DIFF_CALLBACK) {
+class FavoriteTvShowAdapter :
+    PagedListAdapter<TvShowsModel, FavoriteTvShowAdapter.FavoriteTvShowViewHolder>(DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteTvShowAdapter.FavoriteTvShowViewHolder {
-        val binding = ItemsCardviewTvshowsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): FavoriteTvShowAdapter.FavoriteTvShowViewHolder {
+        val binding =
+            ItemsCardviewTvshowsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FavoriteTvShowViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: FavoriteTvShowAdapter.FavoriteTvShowViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: FavoriteTvShowAdapter.FavoriteTvShowViewHolder,
+        position: Int
+    ) {
         val tvShow = getItem(position)
         if (tvShow != null) {
             holder.bind(tvShow)
@@ -29,9 +37,10 @@ class FavoriteTvShowAdapter : PagedListAdapter<TvShowsModel, FavoriteTvShowAdapt
 
     fun getSwipedData(swipedPosition: Int): TvShowsModel? = getItem(swipedPosition)
 
-    inner class FavoriteTvShowViewHolder(private val binding: ItemsCardviewTvshowsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class FavoriteTvShowViewHolder(private val binding: ItemsCardviewTvshowsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(tvShow : TvShowsModel) {
+        fun bind(tvShow: TvShowsModel) {
             with(binding) {
                 tvTvshowsName.text = tvShow.title
                 tvTvshowsDetail.text = tvShow.description

@@ -47,7 +47,11 @@ class DetailActivity : AppCompatActivity() {
                         }
                         Status.ERROR -> {
                             setProgressBar(false)
-                            Toast.makeText(applicationContext, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                applicationContext,
+                                resources.getString(R.string.error),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 })
@@ -64,7 +68,11 @@ class DetailActivity : AppCompatActivity() {
                         }
                         Status.ERROR -> {
                             setProgressBar(false)
-                            Toast.makeText(applicationContext, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                applicationContext,
+                                resources.getString(R.string.error),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 })
@@ -83,10 +91,10 @@ class DetailActivity : AppCompatActivity() {
             tvRelease.text = movies.release
             tvDetail.text = movies.description
             Glide.with(binding.root)
-                    .load(movies.poster)
-                    .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
-                    .error(R.drawable.ic_broken_image)
-                    .into(imageViewDetail)
+                .load(movies.poster)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
+                .error(R.drawable.ic_broken_image)
+                .into(imageViewDetail)
 
             fabFavorite.setOnClickListener {
                 status = !status
@@ -107,10 +115,10 @@ class DetailActivity : AppCompatActivity() {
             tvRelease.text = tvShows.release
             tvDetail.text = tvShows.description
             Glide.with(binding.root)
-                    .load(tvShows.poster)
-                    .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
-                    .error(R.drawable.ic_broken_image)
-                    .into(imageViewDetail)
+                .load(tvShows.poster)
+                .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
+                .error(R.drawable.ic_broken_image)
+                .into(imageViewDetail)
 
             fabFavorite.setOnClickListener {
                 status = !status
@@ -123,18 +131,26 @@ class DetailActivity : AppCompatActivity() {
     private fun setProgressBar(state: Boolean) {
         if (state) {
             binding.progressBar.visibility = View.VISIBLE
-        }
-        else {
+        } else {
             binding.progressBar.visibility = View.INVISIBLE
         }
     }
 
     private fun setFavorite(state: Boolean) {
         if (state) {
-            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_white))
-        }
-        else {
-            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_border))
+            binding.fabFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite_white
+                )
+            )
+        } else {
+            binding.fabFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite_border
+                )
+            )
         }
     }
 

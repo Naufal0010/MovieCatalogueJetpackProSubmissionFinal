@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.exercise.moviecatalogue.data.MovieCatalogueRepository
 import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
-import com.exercise.moviecatalogue.utils.DataDummy
 import com.exercise.moviecatalogue.vo.Resource
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
@@ -29,7 +28,7 @@ class TvShowViewModelTest {
 
     @Mock
     private lateinit var movieCatalogueRepository: MovieCatalogueRepository
-    
+
     @Mock
     private lateinit var observer: Observer<Resource<PagedList<TvShowsModel>>>
 

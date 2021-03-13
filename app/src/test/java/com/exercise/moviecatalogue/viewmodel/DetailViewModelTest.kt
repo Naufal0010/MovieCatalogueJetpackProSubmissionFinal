@@ -9,8 +9,6 @@ import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.utils.DataDummy
 import com.exercise.moviecatalogue.vo.Resource
 import com.nhaarman.mockitokotlin2.verify
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

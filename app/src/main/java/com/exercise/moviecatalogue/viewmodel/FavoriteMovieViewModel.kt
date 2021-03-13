@@ -6,9 +6,11 @@ import androidx.paging.PagedList
 import com.exercise.moviecatalogue.data.MovieCatalogueRepository
 import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
 
-class FavoriteMovieViewModel(private val mMovieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
+class FavoriteMovieViewModel(private val mMovieCatalogueRepository: MovieCatalogueRepository) :
+    ViewModel() {
 
-    fun getFavoriteMovies(): LiveData<PagedList<MoviesModel>> = mMovieCatalogueRepository.getFavoriteMovies()
+    fun getFavoriteMovies(): LiveData<PagedList<MoviesModel>> =
+        mMovieCatalogueRepository.getFavoriteMovies()
 
     fun setFavoriteMovie(movie: MoviesModel) {
         val newState = !movie.favorited

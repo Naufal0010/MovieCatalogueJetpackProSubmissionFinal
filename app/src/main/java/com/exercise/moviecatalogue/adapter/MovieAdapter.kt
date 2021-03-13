@@ -16,7 +16,8 @@ import com.exercise.moviecatalogue.ui.DetailActivity
 class MovieAdapter : PagedListAdapter<MoviesModel, MovieAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val binding = ItemsCardviewMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemsCardviewMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MovieViewHolder(binding)
     }
 
@@ -27,9 +28,10 @@ class MovieAdapter : PagedListAdapter<MoviesModel, MovieAdapter.MovieViewHolder>
         }
     }
 
-    class MovieViewHolder(private val binding: ItemsCardviewMoviesBinding) : RecyclerView.ViewHolder(binding.root) {
+    class MovieViewHolder(private val binding: ItemsCardviewMoviesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind (movie: MoviesModel) {
+        fun bind(movie: MoviesModel) {
             with(binding) {
                 tvMoviesName.text = movie.title
                 tvMoviesDetail.text = movie.description
@@ -39,10 +41,10 @@ class MovieAdapter : PagedListAdapter<MoviesModel, MovieAdapter.MovieViewHolder>
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)
-                        .load(movie.poster)
-                        .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
-                        .error(R.drawable.ic_broken_image)
-                        .into(imageViewMovies)
+                    .load(movie.poster)
+                    .apply(RequestOptions.placeholderOf(R.drawable.ic_refresh))
+                    .error(R.drawable.ic_broken_image)
+                    .into(imageViewMovies)
             }
         }
     }

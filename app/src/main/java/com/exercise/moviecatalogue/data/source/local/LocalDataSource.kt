@@ -12,17 +12,21 @@ class LocalDataSource private constructor(private val mMovieCatalogueDao: MovieC
 
     fun getAllTvShows(): DataSource.Factory<Int, TvShowsModel> = mMovieCatalogueDao.getTvShows()
 
-    fun getMovieWithId(movieId: String): LiveData<MoviesModel> = mMovieCatalogueDao.getMovieById(movieId)
+    fun getMovieWithId(movieId: String): LiveData<MoviesModel> =
+        mMovieCatalogueDao.getMovieById(movieId)
 
-    fun getTvShowWithId(tvShowId: String): LiveData<TvShowsModel> = mMovieCatalogueDao.getTvShowById(tvShowId)
+    fun getTvShowWithId(tvShowId: String): LiveData<TvShowsModel> =
+        mMovieCatalogueDao.getTvShowById(tvShowId)
 
     fun insertMovies(movies: List<MoviesModel>) = mMovieCatalogueDao.insertMovie(movies)
 
     fun insertTvShows(tvShows: List<TvShowsModel>) = mMovieCatalogueDao.insertTvShow(tvShows)
 
-    fun getFavoriteMovies(): DataSource.Factory<Int, MoviesModel> = mMovieCatalogueDao.getFavoriteMovies()
+    fun getFavoriteMovies(): DataSource.Factory<Int, MoviesModel> =
+        mMovieCatalogueDao.getFavoriteMovies()
 
-    fun getFavoriteTvShows(): DataSource.Factory<Int, TvShowsModel> = mMovieCatalogueDao.getFavoriteTvShows()
+    fun getFavoriteTvShows(): DataSource.Factory<Int, TvShowsModel> =
+        mMovieCatalogueDao.getFavoriteTvShows()
 
     fun setMovieFavorite(movie: MoviesModel, newState: Boolean) {
         movie.favorited = newState

@@ -19,7 +19,11 @@ class TvShowsFragment : Fragment() {
 
     private lateinit var binding: FragmentTvShowsBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentTvShowsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -43,7 +47,11 @@ class TvShowsFragment : Fragment() {
                         }
                         Status.ERROR -> {
                             setProgressBar(false)
-                            Toast.makeText(context, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                context,
+                                resources.getString(R.string.error),
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
@@ -59,8 +67,7 @@ class TvShowsFragment : Fragment() {
     private fun setProgressBar(state: Boolean) {
         if (state) {
             binding.progressBar.visibility = View.VISIBLE
-        }
-        else {
+        } else {
             binding.progressBar.visibility = View.INVISIBLE
         }
     }

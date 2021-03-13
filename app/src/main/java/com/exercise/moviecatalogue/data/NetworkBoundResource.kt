@@ -21,8 +21,7 @@ abstract class NetworkBoundResource<ResultType, RequestType>(private val mExecut
             result.removeSource(dbSource)
             if (shouldFetch(data)) {
                 fetchFromNetwork(dbSource)
-            }
-            else {
+            } else {
                 result.addSource(dbSource) { newData ->
                     result.value = Resource.success(newData)
                 }
@@ -44,7 +43,7 @@ abstract class NetworkBoundResource<ResultType, RequestType>(private val mExecut
 
         val apiResponse = createCall()
 
-        result.addSource(dbSource){ newData ->
+        result.addSource(dbSource) { newData ->
             result.value = Resource.loading(newData)
         }
         result.addSource(apiResponse) { response ->

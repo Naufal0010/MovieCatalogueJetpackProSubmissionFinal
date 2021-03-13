@@ -7,7 +7,9 @@ import com.exercise.moviecatalogue.data.MovieCatalogueRepository
 import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.vo.Resource
 
-class TvShowViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
+class TvShowViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) :
+    ViewModel() {
 
-    fun getTvShows() : LiveData<Resource<PagedList<TvShowsModel>>> = movieCatalogueRepository.getAllTvShows()
+    fun getTvShows(): LiveData<Resource<PagedList<TvShowsModel>>> =
+        movieCatalogueRepository.getAllTvShows()
 }

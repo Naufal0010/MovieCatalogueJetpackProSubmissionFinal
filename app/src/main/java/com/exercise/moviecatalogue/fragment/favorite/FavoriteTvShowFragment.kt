@@ -23,7 +23,11 @@ class FavoriteTvShowFragment : Fragment() {
     private lateinit var adapter: FavoriteTvShowAdapter
     private lateinit var viewModel: FavoriteTvShowViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = FragmentFavoriteTvShowBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -51,11 +55,18 @@ class FavoriteTvShowFragment : Fragment() {
     }
 
     private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder): Int {
+        override fun getMovementFlags(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder
+        ): Int {
             return makeMovementFlags(0, ItemTouchHelper.LEFT)
         }
 
-        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean = true
+        override fun onMove(
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            target: RecyclerView.ViewHolder
+        ): Boolean = true
 
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             if (view != null) {
@@ -63,7 +74,8 @@ class FavoriteTvShowFragment : Fragment() {
                 val tvShowModel = adapter.getSwipedData(swipedPosition)
                 tvShowModel?.let { viewModel.setFavoriteTvShow(it) }
 
-                val snackbar = Snackbar.make(view as View, R.string.message_undo, Snackbar.LENGTH_LONG)
+                val snackbar =
+                    Snackbar.make(view as View, R.string.message_undo, Snackbar.LENGTH_LONG)
                 snackbar.setAction(R.string.message_ok) { v ->
                     tvShowModel?.let { viewModel.setFavoriteTvShow(it) }
                 }
@@ -76,8 +88,7 @@ class FavoriteTvShowFragment : Fragment() {
     private fun setProgressBar(state: Boolean) {
         if (state) {
             binding.progressBar.visibility = View.VISIBLE
-        }
-        else {
+        } else {
             binding.progressBar.visibility = View.INVISIBLE
         }
     }

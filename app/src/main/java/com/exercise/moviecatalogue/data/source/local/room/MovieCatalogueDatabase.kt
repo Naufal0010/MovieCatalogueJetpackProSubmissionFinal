@@ -7,9 +7,11 @@ import androidx.room.RoomDatabase
 import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
 import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 
-@Database(entities = [MoviesModel::class, TvShowsModel::class],
+@Database(
+    entities = [MoviesModel::class, TvShowsModel::class],
     version = 1,
-    exportSchema = false)
+    exportSchema = false
+)
 abstract class MovieCatalogueDatabase : RoomDatabase() {
 
     abstract fun movieCatalogueDao(): MovieCatalogueDao
@@ -21,9 +23,11 @@ abstract class MovieCatalogueDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): MovieCatalogueDatabase =
             INSTANCE ?: synchronized(this) {
-                INSTANCE ?: Room.databaseBuilder(context.applicationContext,
+                INSTANCE ?: Room.databaseBuilder(
+                    context.applicationContext,
                     MovieCatalogueDatabase::class.java,
-                    "MovieCatalogue.db").build()
+                    "MovieCatalogue.db"
+                ).build()
             }
     }
 }

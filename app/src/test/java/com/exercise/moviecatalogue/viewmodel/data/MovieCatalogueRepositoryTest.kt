@@ -8,11 +8,8 @@ import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.data.source.remote.RemoteDataSource
 import com.exercise.moviecatalogue.utils.AppExecutors
 import com.exercise.moviecatalogue.utils.DataDummy
-import com.exercise.moviecatalogue.utils.LiveDataTestUtil
 import com.exercise.moviecatalogue.viewmodel.utils.PagedListUtils
 import com.exercise.moviecatalogue.vo.Resource
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.doAnswer
 import com.nhaarman.mockitokotlin2.verify
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
@@ -36,11 +33,13 @@ class MovieCatalogueRepositoryTest {
 
     @Test
     fun getAllMovies() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MoviesModel>
+        val dataSourceFactory =
+            mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MoviesModel>
         `when`(local.getAllMovies()).thenReturn(dataSourceFactory)
         movieCatalogueRepository.getAllMovies()
 
-        val movieEntities = Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyMovies()))
+        val movieEntities =
+            Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyMovies()))
         verify(local).getAllMovies()
         assertNotNull(movieEntities)
         assertEquals(movieResponses.size.toLong(), movieEntities.data?.size?.toLong())
@@ -48,11 +47,13 @@ class MovieCatalogueRepositoryTest {
 
     @Test
     fun getAllTvShows() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, TvShowsModel>
+        val dataSourceFactory =
+            mock(DataSource.Factory::class.java) as DataSource.Factory<Int, TvShowsModel>
         `when`(local.getAllTvShows()).thenReturn(dataSourceFactory)
         movieCatalogueRepository.getAllTvShows()
 
-        val tvShowEntities = Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyTvShows()))
+        val tvShowEntities =
+            Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyTvShows()))
         verify(local).getAllTvShows()
         assertNotNull(tvShowEntities)
         assertEquals(tvShowResponses.size.toLong(), tvShowEntities.data?.size?.toLong())
@@ -60,11 +61,13 @@ class MovieCatalogueRepositoryTest {
 
     @Test
     fun getAllMovieFavorite() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MoviesModel>
+        val dataSourceFactory =
+            mock(DataSource.Factory::class.java) as DataSource.Factory<Int, MoviesModel>
         `when`(local.getFavoriteMovies()).thenReturn(dataSourceFactory)
         movieCatalogueRepository.getFavoriteMovies()
 
-        val movieFavoriteEntities = Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyMovies()))
+        val movieFavoriteEntities =
+            Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyMovies()))
         verify(local).getFavoriteMovies()
         assertNotNull(movieFavoriteEntities)
         assertEquals(movieResponses.size.toLong(), movieFavoriteEntities.data?.size?.toLong())
@@ -72,11 +75,13 @@ class MovieCatalogueRepositoryTest {
 
     @Test
     fun getAllTvShowFavorite() {
-        val dataSourceFactory = mock(DataSource.Factory::class.java) as DataSource.Factory<Int, TvShowsModel>
+        val dataSourceFactory =
+            mock(DataSource.Factory::class.java) as DataSource.Factory<Int, TvShowsModel>
         `when`(local.getFavoriteTvShows()).thenReturn(dataSourceFactory)
         movieCatalogueRepository.getFavoriteTvShows()
 
-        val tvShowFavoriteEntities = Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyTvShows()))
+        val tvShowFavoriteEntities =
+            Resource.success(PagedListUtils.mockPagedList(DataDummy.generateDummyTvShows()))
         verify(local).getFavoriteTvShows()
         assertNotNull(tvShowFavoriteEntities)
         assertEquals(tvShowResponses.size.toLong(), tvShowFavoriteEntities.data?.size?.toLong())

@@ -9,5 +9,6 @@ import com.exercise.moviecatalogue.vo.Resource
 
 class MovieViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
 
-    fun getMovies() : LiveData<Resource<PagedList<MoviesModel>>> = movieCatalogueRepository.getAllMovies()
+    fun getMovies(): LiveData<Resource<PagedList<MoviesModel>>> =
+        movieCatalogueRepository.getAllMovies()
 }

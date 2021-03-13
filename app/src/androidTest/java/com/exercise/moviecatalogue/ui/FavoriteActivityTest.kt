@@ -34,7 +34,11 @@ class FavoriteActivityTest {
     @Test
     fun loadMovies() {
         onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_movies)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size))
+        onView(withId(R.id.rv_movies)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                dummyMovie.size
+            )
+        )
     }
 
 
@@ -42,6 +46,10 @@ class FavoriteActivityTest {
     fun loadTvShows() {
         onView(withText(R.string.tv_shows)).perform(ViewActions.click())
         onView(withId(R.id.rv_tv_shows)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_tv_shows)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size))
+        onView(withId(R.id.rv_tv_shows)).perform(
+            RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(
+                dummyTvShow.size
+            )
+        )
     }
 }

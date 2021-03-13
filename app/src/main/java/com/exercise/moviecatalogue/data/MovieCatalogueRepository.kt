@@ -16,7 +16,8 @@ import com.exercise.moviecatalogue.vo.Resource
 class MovieCatalogueRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors) :
+    private val appExecutors: AppExecutors
+) :
     MovieCatalogueDataSource {
 
     companion object {
@@ -24,14 +25,19 @@ class MovieCatalogueRepository private constructor(
         @Volatile
         private var instance: MovieCatalogueRepository? = null
 
-        fun getInstance(remoteData: RemoteDataSource, localData: LocalDataSource, appExecutors: AppExecutors): MovieCatalogueRepository =
+        fun getInstance(
+            remoteData: RemoteDataSource,
+            localData: LocalDataSource,
+            appExecutors: AppExecutors
+        ): MovieCatalogueRepository =
             instance ?: synchronized(this) {
                 instance ?: MovieCatalogueRepository(remoteData, localData, appExecutors)
             }
     }
 
     override fun getAllMovies(): LiveData<Resource<PagedList<MoviesModel>>> {
-        return object : NetworkBoundResource<PagedList<MoviesModel>, List<MoviesResponse>>(appExecutors) {
+        return object :
+            NetworkBoundResource<PagedList<MoviesModel>, List<MoviesResponse>>(appExecutors) {
 
             override fun loadFromDB(): LiveData<PagedList<MoviesModel>> {
                 val config = PagedList.Config.Builder()
@@ -52,14 +58,16 @@ class MovieCatalogueRepository private constructor(
                 val movieList = ArrayList<MoviesModel>()
 
                 for (response in data) {
-                    val movie = MoviesModel(response.moviesId,
+                    val movie = MoviesModel(
+                        response.moviesId,
                         response.title,
                         response.description,
                         response.genre,
                         response.poster,
                         response.length,
                         response.release,
-                        false)
+                        false
+                    )
                     movieList.add(movie)
                 }
 
@@ -84,14 +92,16 @@ class MovieCatalogueRepository private constructor(
                 val movieList = ArrayList<MoviesModel>()
 
                 for (response in data) {
-                    val movie = MoviesModel(response.moviesId,
+                    val movie = MoviesModel(
+                        response.moviesId,
                         response.title,
                         response.description,
                         response.genre,
                         response.poster,
                         response.length,
                         response.release,
-                        false)
+                        false
+                    )
                     movieList.add(movie)
                 }
 
@@ -102,7 +112,8 @@ class MovieCatalogueRepository private constructor(
 
 
     override fun getAllTvShows(): LiveData<Resource<PagedList<TvShowsModel>>> {
-        return object : NetworkBoundResource<PagedList<TvShowsModel>, List<TvShowsResponse>>(appExecutors) {
+        return object :
+            NetworkBoundResource<PagedList<TvShowsModel>, List<TvShowsResponse>>(appExecutors) {
 
             override fun loadFromDB(): LiveData<PagedList<TvShowsModel>> {
                 val config = PagedList.Config.Builder()
@@ -123,14 +134,16 @@ class MovieCatalogueRepository private constructor(
                 val tvShowList = ArrayList<TvShowsModel>()
 
                 for (response in data) {
-                    val tvShow = TvShowsModel(response.tvShowsId,
+                    val tvShow = TvShowsModel(
+                        response.tvShowsId,
                         response.title,
                         response.description,
                         response.genre,
                         response.poster,
                         response.length,
                         response.release,
-                        false)
+                        false
+                    )
                     tvShowList.add(tvShow)
                 }
 
@@ -155,14 +168,16 @@ class MovieCatalogueRepository private constructor(
                 val tvShowList = ArrayList<TvShowsModel>()
 
                 for (response in data) {
-                    val tvShow = TvShowsModel(response.tvShowsId,
+                    val tvShow = TvShowsModel(
+                        response.tvShowsId,
                         response.title,
                         response.description,
                         response.genre,
                         response.poster,
                         response.length,
                         response.release,
-                        false)
+                        false
+                    )
                     tvShowList.add(tvShow)
                 }
 

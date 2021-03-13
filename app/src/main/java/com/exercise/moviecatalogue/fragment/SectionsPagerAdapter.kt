@@ -7,18 +7,20 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.exercise.moviecatalogue.R
 
-class SectionsPagerAdapter (private val mContext: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class SectionsPagerAdapter(private val mContext: Context, fragmentManager: FragmentManager) :
+    FragmentPagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     override fun getCount(): Int = TAB_TITLES.size
 
     override fun getItem(position: Int): Fragment =
-        when(position) {
+        when (position) {
             0 -> MoviesFragment()
             1 -> TvShowsFragment()
             else -> Fragment()
         }
 
-    override fun getPageTitle(position: Int): CharSequence = mContext.resources.getString(TAB_TITLES[position])
+    override fun getPageTitle(position: Int): CharSequence =
+        mContext.resources.getString(TAB_TITLES[position])
 
     companion object {
         @StringRes

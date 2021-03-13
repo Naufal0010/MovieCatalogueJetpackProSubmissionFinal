@@ -9,7 +9,8 @@ import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
 import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.vo.Resource
 
-class DetailViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) : ViewModel() {
+class DetailViewModel(private val movieCatalogueRepository: MovieCatalogueRepository) :
+    ViewModel() {
 
     private val idMovie = MutableLiveData<String>()
     private val idTvShow = MutableLiveData<String>()
@@ -26,9 +27,10 @@ class DetailViewModel(private val movieCatalogueRepository: MovieCatalogueReposi
         movieCatalogueRepository.getMoviesWithId(mMovieId)
     }
 
-    var tvShow: LiveData<Resource<TvShowsModel>> = Transformations.switchMap(idTvShow) { mTvShowId ->
-        movieCatalogueRepository.getTvShowsWithId(mTvShowId)
-    }
+    var tvShow: LiveData<Resource<TvShowsModel>> =
+        Transformations.switchMap(idTvShow) { mTvShowId ->
+            movieCatalogueRepository.getTvShowsWithId(mTvShowId)
+        }
 
     fun setFavorite() {
 

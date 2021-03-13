@@ -13,10 +13,12 @@ import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.databinding.ItemsCardviewTvshowsBinding
 import com.exercise.moviecatalogue.ui.DetailActivity
 
-class TvShowsAdapter : PagedListAdapter<TvShowsModel, TvShowsAdapter.TvShowsViewHolder>(DIFF_CALLBACK) {
+class TvShowsAdapter :
+    PagedListAdapter<TvShowsModel, TvShowsAdapter.TvShowsViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowsViewHolder {
-        val binding = ItemsCardviewTvshowsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemsCardviewTvshowsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TvShowsViewHolder(binding)
     }
 
@@ -27,9 +29,10 @@ class TvShowsAdapter : PagedListAdapter<TvShowsModel, TvShowsAdapter.TvShowsView
         }
     }
 
-    inner class TvShowsViewHolder(private val binding: ItemsCardviewTvshowsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class TvShowsViewHolder(private val binding: ItemsCardviewTvshowsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(tvShow : TvShowsModel) {
+        fun bind(tvShow: TvShowsModel) {
             with(binding) {
                 tvTvshowsName.text = tvShow.title
                 tvTvshowsDetail.text = tvShow.description

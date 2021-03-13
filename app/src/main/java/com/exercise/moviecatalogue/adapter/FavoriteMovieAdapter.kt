@@ -13,14 +13,19 @@ import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
 import com.exercise.moviecatalogue.databinding.ItemsCardviewMoviesBinding
 import com.exercise.moviecatalogue.ui.DetailActivity
 
-class FavoriteMovieAdapter : PagedListAdapter<MoviesModel, FavoriteMovieAdapter.FavoriteMovieViewHolder>(DIFF_CALLBACK) {
+class FavoriteMovieAdapter :
+    PagedListAdapter<MoviesModel, FavoriteMovieAdapter.FavoriteMovieViewHolder>(DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):FavoriteMovieViewHolder {
-        val binding = ItemsCardviewMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteMovieViewHolder {
+        val binding =
+            ItemsCardviewMoviesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FavoriteMovieViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: FavoriteMovieAdapter.FavoriteMovieViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: FavoriteMovieAdapter.FavoriteMovieViewHolder,
+        position: Int
+    ) {
         val movie = getItem(position)
         if (movie != null) {
             holder.bind(movie)
@@ -29,9 +34,10 @@ class FavoriteMovieAdapter : PagedListAdapter<MoviesModel, FavoriteMovieAdapter.
 
     fun getSwipedData(swipedPosition: Int): MoviesModel? = getItem(swipedPosition)
 
-    inner class FavoriteMovieViewHolder(private val binding: ItemsCardviewMoviesBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class FavoriteMovieViewHolder(private val binding: ItemsCardviewMoviesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind (movie: MoviesModel) {
+        fun bind(movie: MoviesModel) {
             with(binding) {
                 tvMoviesName.text = movie.title
                 tvMoviesDetail.text = movie.description
