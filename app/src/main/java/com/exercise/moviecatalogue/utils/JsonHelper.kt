@@ -41,7 +41,7 @@ class JsonHelper(private val context: Context) {
                     val length = getString("length")
                     val release = getString("release")
 
-                    val movieResponse = MoviesResponse(id, title, overview, genre, posterPath, length, release)
+                    val movieResponse = MoviesResponse(id, title, overview, genre, posterPath, length, release,false)
                     list.add(movieResponse)
                 }
             }
@@ -70,7 +70,7 @@ class JsonHelper(private val context: Context) {
                     val length = getString("length")
                     val release = getString("release")
 
-                    val tvShowResponse = TvShowsResponse(id, title, overview, genre, posterPath, length, release)
+                    val tvShowResponse = TvShowsResponse(id, title, overview, genre, posterPath, length, release, false)
                     list.add(tvShowResponse)
                 }
             }

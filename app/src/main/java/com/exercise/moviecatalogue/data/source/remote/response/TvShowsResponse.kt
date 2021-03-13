@@ -11,5 +11,6 @@ data class TvShowsResponse(
         var genre: String,
         var poster: String,
         var length: String,
-        var release: String
+        var release: String,
+        var favorited: Boolean
 ) : Parcelable

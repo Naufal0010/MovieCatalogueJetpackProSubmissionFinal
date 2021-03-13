@@ -19,7 +19,8 @@ object DataDummy {
                 "Drama, Romance, Music",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wrFpXMNBRj2PBiN4Z5kix51XaIZ.jpg",
                 "2h 16m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -31,7 +32,8 @@ object DataDummy {
                 "Action, Science Fiction, Adventure",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xRWht48C2V8XNfzvPehyClOvDni.jpg",
                 "2h 2m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -43,7 +45,8 @@ object DataDummy {
                 "Action, Adventure, Fantasy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg",
                 "2h 23m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -55,7 +58,8 @@ object DataDummy {
                 "Music, Drama, History",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg",
                 "2h 15m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -67,7 +71,8 @@ object DataDummy {
                 "Action, Crime, Thriller",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hXgmWPd1SuujRZ4QnKLzrj79PAw.jpg",
                 "1h 59m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -79,7 +84,8 @@ object DataDummy {
                 "Drama",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/v3QyboWRoA4O9RbcsqH8tJMe8EB.jpg",
                 "2h 10m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -91,7 +97,8 @@ object DataDummy {
                 "Horror, War, Science Fiction",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/l76Rgp32z2UxjULApxGXAPpYdAP.jpg",
                 "1h 50m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -103,7 +110,8 @@ object DataDummy {
                 "Thriller, Drama, Science Fiction",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/svIDTNUoajS8dLEo7EosxvyAsgJ.jpg",
                 "2h 9m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -115,7 +123,8 @@ object DataDummy {
                 "Thriller, Mystery, Drama",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zPfjb0ULVgn3oEnPtS81gfJ5IKO.jpg",
                 "1h 42m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -127,7 +136,8 @@ object DataDummy {
                 "Adventure, Action, Science Fiction",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
                 "2h 29m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -146,7 +156,8 @@ object DataDummy {
                 "Crime, Drama, Mystery",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg",
                 "42m per eps",
-                "2012"
+                "2012",
+                false
             )
         )
 
@@ -158,7 +169,8 @@ object DataDummy {
                 "Sci-Fi & Fantasy, Action & Adventure",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/drlfSCIlMKrEeMPhi8pqY4xGxj.jpg",
                 "49m per eps",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -170,7 +182,8 @@ object DataDummy {
                 "Comedy, Sci-Fi & Fantasy, Animation",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tZ0jXOeYBWPZ0OWzUhTlYvMF7YR.jpg",
                 "25m per eps",
-                "1986"
+                "1986",
+                false
             )
         )
 
@@ -182,7 +195,8 @@ object DataDummy {
                 "Action & Adventure, Animation",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1T6XCwWpmg1B4jrzAlcFCnJGQVD.jpg",
                 "25m per eps",
-                "2009"
+                "2009",
+                false
             )
         )
 
@@ -194,7 +208,8 @@ object DataDummy {
                 "Animation, Comedy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qlClTwL0GSGZUH7xwJU5PER5wnJ.jpg",
                 "22m per eps",
-                "1999"
+                "1999",
+                false
             )
         )
 
@@ -206,7 +221,8 @@ object DataDummy {
                 "Drama, Sci-Fi & Fantasy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
                 "44m per eps",
-                "2014"
+                "2014",
+                false
             )
         )
 
@@ -218,7 +234,8 @@ object DataDummy {
                 "Sci-Fi & Fantasy, Drama",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
                 "1h per eps",
-                "2011"
+                "2011",
+                false
             )
         )
 
@@ -230,7 +247,8 @@ object DataDummy {
                 "Drama, Crime, Sci-Fi",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4XddcRDtnNjYmLRMYpbrhFxsbuq.jpg",
                 "43m per eps",
-                "2014"
+                "2014",
+                false
             )
         )
 
@@ -242,7 +260,8 @@ object DataDummy {
                 "Animation, Action & Adventure",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hKkY4Hf5tDKCwVzzeo42vp1RxPQ.jpg",
                 "25m per eps",
-                "2007"
+                "2007",
+                false
             )
         )
 
@@ -254,7 +273,8 @@ object DataDummy {
                 "Drama, Sci-Fi & Fantasy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4ka8vAzAFUZFKxWyfGfwVcSXuZo.jpg",
                 "42m per eps",
-                "2015"
+                "2015",
+                false
             )
         )
 
@@ -274,7 +294,8 @@ object DataDummy {
                 "Drama, Romance, Music",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wrFpXMNBRj2PBiN4Z5kix51XaIZ.jpg",
                 "2h 16m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -286,7 +307,8 @@ object DataDummy {
                 "Action, Science Fiction, Adventure",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xRWht48C2V8XNfzvPehyClOvDni.jpg",
                 "2h 2m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -298,7 +320,8 @@ object DataDummy {
                 "Action, Adventure, Fantasy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg",
                 "2h 23m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -310,7 +333,8 @@ object DataDummy {
                 "Music, Drama, History",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lHu1wtNaczFPGFDTrjCSzeLPTKN.jpg",
                 "2h 15m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -322,7 +346,8 @@ object DataDummy {
                 "Action, Crime, Thriller",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hXgmWPd1SuujRZ4QnKLzrj79PAw.jpg",
                 "1h 59m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -334,7 +359,8 @@ object DataDummy {
                 "Drama",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/v3QyboWRoA4O9RbcsqH8tJMe8EB.jpg",
                 "2h 10m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -346,7 +372,8 @@ object DataDummy {
                 "Horror, War, Science Fiction",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/l76Rgp32z2UxjULApxGXAPpYdAP.jpg",
                 "1h 50m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -358,7 +385,8 @@ object DataDummy {
                 "Thriller, Drama, Science Fiction",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/svIDTNUoajS8dLEo7EosxvyAsgJ.jpg",
                 "2h 9m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -370,7 +398,8 @@ object DataDummy {
                 "Thriller, Mystery, Drama",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zPfjb0ULVgn3oEnPtS81gfJ5IKO.jpg",
                 "1h 42m",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -382,7 +411,8 @@ object DataDummy {
                 "Adventure, Action, Science Fiction",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
                 "2h 29m",
-                "2018"
+                "2018",
+                false
             )
         )
 
@@ -401,7 +431,8 @@ object DataDummy {
                 "Crime, Drama, Mystery",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg",
                 "42m per eps",
-                "2012"
+                "2012",
+                false
             )
         )
 
@@ -413,7 +444,8 @@ object DataDummy {
                 "Sci-Fi & Fantasy, Action & Adventure",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/drlfSCIlMKrEeMPhi8pqY4xGxj.jpg",
                 "49m per eps",
-                "2019"
+                "2019",
+                false
             )
         )
 
@@ -425,7 +457,8 @@ object DataDummy {
                 "Comedy, Sci-Fi & Fantasy, Animation",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tZ0jXOeYBWPZ0OWzUhTlYvMF7YR.jpg",
                 "25m per eps",
-                "1986"
+                "1986",
+                false
             )
         )
 
@@ -437,7 +470,8 @@ object DataDummy {
                 "Action & Adventure, Animation",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1T6XCwWpmg1B4jrzAlcFCnJGQVD.jpg",
                 "25m per eps",
-                "2009"
+                "2009",
+                false
             )
         )
 
@@ -449,7 +483,8 @@ object DataDummy {
                 "Animation, Comedy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qlClTwL0GSGZUH7xwJU5PER5wnJ.jpg",
                 "22m per eps",
-                "1999"
+                "1999",
+                false
             )
         )
 
@@ -461,7 +496,8 @@ object DataDummy {
                 "Drama, Sci-Fi & Fantasy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg",
                 "44m per eps",
-                "2014"
+                "2014",
+                false
             )
         )
 
@@ -473,7 +509,8 @@ object DataDummy {
                 "Sci-Fi & Fantasy, Drama",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
                 "1h per eps",
-                "2011"
+                "2011",
+                false
             )
         )
 
@@ -485,7 +522,8 @@ object DataDummy {
                 "Drama, Crime, Sci-Fi",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4XddcRDtnNjYmLRMYpbrhFxsbuq.jpg",
                 "43m per eps",
-                "2014"
+                "2014",
+                false
             )
         )
 
@@ -497,7 +535,8 @@ object DataDummy {
                 "Animation, Action & Adventure",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hKkY4Hf5tDKCwVzzeo42vp1RxPQ.jpg",
                 "25m per eps",
-                "2007"
+                "2007",
+                false
             )
         )
 
@@ -509,7 +548,8 @@ object DataDummy {
                 "Drama, Sci-Fi & Fantasy",
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4ka8vAzAFUZFKxWyfGfwVcSXuZo.jpg",
                 "42m per eps",
-                "2015"
+                "2015",
+                false
             )
         )
 
