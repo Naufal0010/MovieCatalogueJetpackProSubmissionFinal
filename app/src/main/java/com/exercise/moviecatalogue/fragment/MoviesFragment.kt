@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.exercise.moviecatalogue.R
 import com.exercise.moviecatalogue.adapter.MovieAdapter
 import com.exercise.moviecatalogue.databinding.FragmentMoviesBinding
 import com.exercise.moviecatalogue.viewmodel.MovieViewModel
 import com.exercise.moviecatalogue.viewmodel.ViewModelFactory
+import com.exercise.moviecatalogue.vo.Status
 
 class MoviesFragment : Fragment() {
 
@@ -29,11 +32,21 @@ class MoviesFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
             val movieAdapter = MovieAdapter()
-            setProgressBar(true)
             viewModel.getMovies().observe(this, { movies ->
-                setProgressBar(false)
-                movieAdapter.setMovies(movies)
-                movieAdapter.notifyDataSetChanged()
+                if (movies != null) {
+                    when(movies.status) {
+                        Status.LOADING -> setProgressBar(true)
+                        Status.SUCCESS -> {
+                            setProgressBar(false)
+                            movieAdapter.setMovies(movies.data)
+                            movieAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            setProgressBar(false)
+                            Toast.makeText(context, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             })
 
             with(binding.rvMovies) {

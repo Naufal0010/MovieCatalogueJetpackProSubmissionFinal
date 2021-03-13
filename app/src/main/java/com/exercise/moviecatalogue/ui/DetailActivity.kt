@@ -2,6 +2,7 @@ package com.exercise.moviecatalogue.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -12,6 +13,7 @@ import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.databinding.ActivityDetailBinding
 import com.exercise.moviecatalogue.viewmodel.DetailViewModel
 import com.exercise.moviecatalogue.viewmodel.ViewModelFactory
+import com.exercise.moviecatalogue.vo.Status
 
 class DetailActivity : AppCompatActivity() {
 
@@ -33,22 +35,36 @@ class DetailActivity : AppCompatActivity() {
             val idTvShow = extras.getString(EXTRA_TV)
 
             if (idMovie != null) {
-                setProgressBar(true)
-
                 viewModel.setSelectedMovie(idMovie)
-                viewModel.getMovie().observe(this, { movies ->
-                    setProgressBar(false)
-                    populateMovie(movies)
+                viewModel.movie.observe(this, { movies ->
+                    when (movies.status) {
+                        Status.LOADING -> setProgressBar(true)
+                        Status.SUCCESS -> if (movies.data != null) {
+                            setProgressBar(false)
+                            populateMovie(movies.data)
+                        }
+                        Status.ERROR -> {
+                            setProgressBar(false)
+                            Toast.makeText(applicationContext, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 })
             }
 
             if (idTvShow != null) {
-                setProgressBar(true)
-
                 viewModel.setSelectedTvShow(idTvShow)
-                viewModel.getTvShows().observe(this, { tvShows ->
-                    setProgressBar(false)
-                    populateTvShow(tvShows)
+                viewModel.tvShow.observe(this, { tvShows ->
+                    when (tvShows.status) {
+                        Status.LOADING -> setProgressBar(true)
+                        Status.SUCCESS -> if (tvShows.data != null) {
+                            setProgressBar(false)
+                            populateTvShow(tvShows.data)
+                        }
+                        Status.ERROR -> {
+                            setProgressBar(false)
+                            Toast.makeText(applicationContext, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 })
             }
         }

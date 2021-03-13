@@ -17,4 +17,7 @@
     <string name="_2018">2018</string>
     <string name="overview">Overview</string>
     <string name="detail_content">Detail Content</string>
+    <string name="favorite">favorite</string>
+    <string name="error">Terjadi Kesalahan</string>
+    <string name="fab_button">fab button</string>
 </resources>

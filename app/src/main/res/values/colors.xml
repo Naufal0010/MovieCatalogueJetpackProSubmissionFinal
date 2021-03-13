@@ -16,4 +16,5 @@
     <color name="dark_grey">#383838</color>
     <color name="grey_text">#DDDDDD</color>
     <color name="dark_grey_text">#C4C4C4</color>
+    <color name="light_gray">#EEEEEE</color>
 </resources>

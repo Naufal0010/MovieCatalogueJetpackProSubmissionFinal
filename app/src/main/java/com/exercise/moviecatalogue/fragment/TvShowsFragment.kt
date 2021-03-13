@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.exercise.moviecatalogue.R
 import com.exercise.moviecatalogue.adapter.TvShowsAdapter
 import com.exercise.moviecatalogue.databinding.FragmentTvShowsBinding
 import com.exercise.moviecatalogue.viewmodel.TvShowViewModel
 import com.exercise.moviecatalogue.viewmodel.ViewModelFactory
+import com.exercise.moviecatalogue.vo.Status
 
 class TvShowsFragment : Fragment() {
 
@@ -29,11 +32,21 @@ class TvShowsFragment : Fragment() {
             val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
 
             val tvShowsAdapter = TvShowsAdapter()
-            setProgressBar(true)
             viewModel.getTvShows().observe(this, { tvShows ->
-                setProgressBar(false)
-                tvShowsAdapter.setTvShows(tvShows)
-                tvShowsAdapter.notifyDataSetChanged()
+                if (tvShows != null) {
+                    when (tvShows.status) {
+                        Status.LOADING -> setProgressBar(true)
+                        Status.SUCCESS -> {
+                            setProgressBar(false)
+                            tvShowsAdapter.setTvShows(tvShows.data)
+                            tvShowsAdapter.notifyDataSetChanged()
+                        }
+                        Status.ERROR -> {
+                            setProgressBar(false)
+                            Toast.makeText(context, resources.getString(R.string.error), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             })
 
             with(binding.rvTvShows) {
