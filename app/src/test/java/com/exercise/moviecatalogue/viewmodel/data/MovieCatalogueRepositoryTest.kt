@@ -5,18 +5,20 @@ import androidx.paging.DataSource
 import com.exercise.moviecatalogue.data.source.local.LocalDataSource
 import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
 import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
+import com.exercise.moviecatalogue.data.source.local.room.MovieCatalogueDao
 import com.exercise.moviecatalogue.data.source.remote.RemoteDataSource
 import com.exercise.moviecatalogue.utils.AppExecutors
 import com.exercise.moviecatalogue.utils.DataDummy
 import com.exercise.moviecatalogue.viewmodel.utils.PagedListUtils
 import com.exercise.moviecatalogue.vo.Resource
+import com.nhaarman.mockitokotlin2.doNothing
 import com.nhaarman.mockitokotlin2.verify
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.mockito.Mockito.*
+import java.util.concurrent.Executors
 
 class MovieCatalogueRepositoryTest {
 
@@ -26,6 +28,7 @@ class MovieCatalogueRepositoryTest {
     private val remote = mock(RemoteDataSource::class.java)
     private val local = mock(LocalDataSource::class.java)
     private val appExecutors = mock(AppExecutors::class.java)
+    private val dao = mock(MovieCatalogueDao::class.java)
     private val movieCatalogueRepository = FakeMovieCatalogueRepository(remote, local, appExecutors)
 
     private val movieResponses = DataDummy.generateMovies()
@@ -85,5 +88,30 @@ class MovieCatalogueRepositoryTest {
         verify(local).getFavoriteTvShows()
         assertNotNull(tvShowFavoriteEntities)
         assertEquals(tvShowResponses.size.toLong(), tvShowFavoriteEntities.data?.size?.toLong())
+    }
+
+    @Test
+    fun setMovieFavorite() {
+        val localData = LocalDataSource.getInstance(dao)
+        val dataDummy = DataDummy.generateDummyMovies()[0]
+        val expectedDataDummy = dataDummy.copy(favorited = true)
+
+        doNothing().`when`(dao).updateMovie(expectedDataDummy)
+        localData.setMovieFavorite(dataDummy, true)
+
+        verify(dao, times(1)).updateMovie(expectedDataDummy)
+    }
+
+    @Test
+    fun setTvShowFavorite() {
+        val dataDummy = DataDummy.generateDummyTvShows()[0]
+        val newState = !dataDummy.favorited
+
+        `when`(appExecutors.diskIO()).thenReturn(Executors.newSingleThreadExecutor())
+        local.setTvShowFavorite(dataDummy, newState)
+
+        movieCatalogueRepository.setTvShowFavorite(dataDummy, newState)
+        verify(local, times(1)).setTvShowFavorite(dataDummy, newState)
+        verifyNoMoreInteractions(local)
     }
 }

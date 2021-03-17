@@ -8,6 +8,7 @@ import com.exercise.moviecatalogue.data.source.local.entity.MoviesModel
 import com.exercise.moviecatalogue.data.source.local.entity.TvShowsModel
 import com.exercise.moviecatalogue.utils.DataDummy
 import com.exercise.moviecatalogue.vo.Resource
+import com.nhaarman.mockitokotlin2.doNothing
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Before
 import org.junit.Rule
@@ -15,6 +16,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.times
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
@@ -67,5 +69,33 @@ class DetailViewModelTest {
         `when`(movieCatalogueRepository.getTvShowsWithId(tvShowId)).thenReturn(tvShow)
         viewModel.tvShow.observeForever(tvShowObserver)
         verify(tvShowObserver).onChanged(dummyTvShowDetail)
+    }
+
+    @Test
+    fun setFavoriteMovie() {
+        val dummyMovieFavorite = Resource.success(DataDummy.generateDummyMovies()[0])
+        val movie = MutableLiveData<Resource<MoviesModel>>()
+        val newState = !dummyMovie.favorited
+        movie.value = dummyMovieFavorite
+        `when`(movieCatalogueRepository.getMoviesWithId(movieId)).thenReturn(movie)
+
+        doNothing().`when`(movieCatalogueRepository).setMovieFavorite(dummyMovie, newState)
+        viewModel.movie.observeForever(movieObserver)
+        viewModel.setFavorite()
+        verify(movieCatalogueRepository, times(1)).setMovieFavorite(dummyMovie, newState)
+    }
+
+    @Test
+    fun setFavoriteTvShow() {
+        val dummyTvShowFavorite = Resource.success(DataDummy.generateDummyTvShows()[0])
+        val tvShow = MutableLiveData<Resource<TvShowsModel>>()
+        val newState = !dummyTvShow.favorited
+        tvShow.value = dummyTvShowFavorite
+        `when`(movieCatalogueRepository.getTvShowsWithId(tvShowId)).thenReturn(tvShow)
+
+        doNothing().`when`(movieCatalogueRepository).setTvShowFavorite(dummyTvShow, newState)
+        viewModel.tvShow.observeForever(tvShowObserver)
+        viewModel.setFavorite()
+        verify(movieCatalogueRepository, times(1)).setTvShowFavorite(dummyTvShow, newState)
     }
 }
