@@ -1,7 +1,7 @@
 # Movie Catalogue Submission
 This repository is the final submission in [Dicoding](dicoding.com) class [Jetpack Pro](https://www.dicoding.com/academies/129). This app implements Jetpack components such as LiveData, ViewModel, Repository, Room, UI and Unit Testing, etc.
 
-## Screenshots
+## Screenshot
 <p align="center">
     <img src="/Screenshots/1.jpg"
         alt="Movie section"    
@@ -21,7 +21,7 @@ This repository is the final submission in [Dicoding](dicoding.com) class [Jetpa
         width="200" />
 </p>
 
-## Features
+## Feature
 Several features in this application:
 - List of Movies and TvShows
 - Show detail of Movies and TvShows
