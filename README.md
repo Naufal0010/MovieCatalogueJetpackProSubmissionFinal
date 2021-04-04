@@ -39,6 +39,9 @@ Some libraries I used to:
 - ViewBinding
 - etc
 
+## Disclaimer
+DO NOT COPYING 100%. Use this for reference on your app or your Dicoding account will get penalty.
+
 ## Support Me
 All you have to do just star this repository and follow my github account :)<br>
 Thank You, *cheers*
